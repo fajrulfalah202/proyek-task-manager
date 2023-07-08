@@ -1,0 +1,18 @@
+@startuml delete
+title Sequence Diagram - Delete
+skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+
+actor User
+participant "Task Manager" as TM
+control Controller
+database Database
+
+User -> TM: Hapus Tugas
+TM -> Controller: Permintaan Hapus Tugas
+Controller -> Database: Hapus Tugas
+Database --> Controller: Konfirmasi Penghapusan
+Controller --> TM: Konfirmasi Penghapusan
+TM --> User: Tugas Berhasil Dihapus
+
+@enduml

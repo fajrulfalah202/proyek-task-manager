@@ -1,0 +1,18 @@
+@startuml login
+title Sequence Diagram - Login
+skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+
+actor User
+control "Login Controller" as LC 
+participant "User Authentication" as UA
+database Database
+
+User -> LC: Memasukkan informasi login
+LC -> UA: Verifikasi informasi login
+UA -> Database: Cek kredensial pengguna
+Database --> UA: Informasi pengguna terverifikasi
+UA --> LC: Pengguna terautentikasi
+LC --> User: Berhasil login
+
+@enduml

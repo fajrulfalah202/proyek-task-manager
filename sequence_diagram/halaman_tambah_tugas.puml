@@ -1,0 +1,12 @@
+@startuml tambah_tugas
+
+title Sequence Diagram - Halaman Tambah Tugas
+skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+
+actor User
+participant "Task Manager" as TM
+
+User -> TM: Buka Halaman Tambah Tugas
+TM --> User: Tampilkan Formulir Tambah Tugas
+@enduml

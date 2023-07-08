@@ -1,0 +1,19 @@
+@startuml beranda
+
+title Halaman Beranda
+skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+
+actor User
+participant "Task Manager" as TM
+control Controller
+database Database
+
+User -> TM: Buka Halaman Beranda
+TM -> Controller: Permintaan Ambil Daftar Tugas
+Controller -> Database: Ambil Daftar Tugas
+Database --> Controller: Daftar Tugas
+Controller --> TM: Daftar Tugas
+TM --> User: Tampilkan Daftar Tugas
+
+@enduml

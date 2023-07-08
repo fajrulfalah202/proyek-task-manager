@@ -1,0 +1,19 @@
+@startuml simpan_perubahan
+
+title Menyimpan Perubahan
+skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+
+actor User
+participant "Task Manager" as TM
+control Controller
+database Database
+
+User -> TM: Simpan Perubahan Tugas
+TM -> Controller: Permintaan Simpan Perubahan Tugas
+Controller -> Database: Simpan Perubahan
+Database --> Controller: Konfirmasi Penyimpanan
+Controller --> TM: Konfirmasi Penyimpanan
+TM --> User: Tugas Berhasil Diubah
+
+@enduml

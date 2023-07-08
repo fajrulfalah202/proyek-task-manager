@@ -1,0 +1,19 @@
+@startuml edit_tugas
+
+title Edit Tugas
+skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+
+actor User
+participant "Task Manager" as TM
+control Controller
+database Database
+
+User -> TM: Buka Halaman Edit Tugas
+TM -> Controller: Permintaan Ambil Informasi Tugas
+Controller -> Database: Ambil Informasi Tugas
+Database --> Controller: Informasi Tugas
+Controller --> TM: Informasi Tugas
+TM --> User: Tampilkan Formulir Edit Tugas
+
+@enduml

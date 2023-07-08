@@ -1,0 +1,19 @@
+@startuml tambahkan Tugas
+
+title Tambah Tugas
+skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+
+actor User
+participant "Task Manager" as TM
+control Controller
+database Database
+
+User -> TM: Tambahkan Tugas Baru
+TM -> Controller: Permintaan Simpan Tugas Baru
+Controller -> Database: Simpan Tugas Baru
+Database --> Controller: Konfirmasi Penyimpanan
+Controller --> TM: Konfirmasi Penyimpanan
+TM --> User: Tugas Berhasil Ditambahkan
+
+@enduml
